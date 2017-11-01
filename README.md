@@ -1,55 +1,17 @@
-Kinect Coordinate Mapping
+Kinect Body Joints To Minecraft
 =========================
 
-This project demonstrates Kinect for Windows coordinate mapping using SDK version 1.8.
+This project uses a kinect camera's input to convert body arm and leg joint angles into Minecraft armorstand join rotations.
 
-Learn how to draw the joints on screen and PERFECTLY align them with the color or depth frame.
+Useful when trying to animate complex join movements by hand. Instead, one can perform them in front of the kinect and get an output of frames to use in-game.
 
-Tutorial
----
-Read a thorough tutorial to understand Kinect coordiante mapping: [http://pterneas.com/?p=1554] (http://pterneas.com/?p=1554)
-
-Example
----
-
-    foreach (Joint joint in body.Joints)
-    {
-        // 3D coordinates in meters
-        SkeletonPoint skeletonPoint = joint.Position;
-
-        // 2D coordinates in pixels
-        Point point = new Point();
-
-        if (_mode == CameraMode.Color)
-        {
-            // Skeleton-to-Color mapping
-            ColorImagePoint colorPoint = _sensor.CoordinateMapper.MapSkeletonPointToColorPoint(
-                                                                  skeletonPoint,
-                                                                  ColorImageFormat.RgbResolution640x480Fps30);
-
-            point.X = colorPoint.X;
-            point.Y = colorPoint.Y;
-        }
-        else if (_mode == CameraMode.Depth)
-        {
-            // Skeleton-to-Depth mapping
-            DepthImagePoint depthPoint = _sensor.CoordinateMapper.MapSkeletonPointToDepthPoint(
-                                                                  skeletonPoint,
-                                                                  DepthImageFormat.Resolution320x240Fps30);
-
-            point.X = depthPoint.X;
-            point.Y = depthPoint.Y;
-        }
-    }
 
 Credits
 ---
-Developed by [Vangos Pterneas](http://pterneas.com) for [LightBuzz](http://lightbuzz.com)
+Partially developed by Daniel Voznyy (lokigast) (Originally created around 2015).
+
+Thanks to [Vangos Pterneas](http://pterneas.com) for creating original code allowing to find joint intersection positions in 3D space.
 
 License
 ---
-You are free to use these libraries in personal and commercial projects by attributing the original creator of Vitruvius. Licensed under [MIT License](https://github.com/Vangos/kinect-coordinate-mapping/blob/master/LICENSE).
-
-Vitruvius
----
-Remember to check my other project, [Vitruvius] (https://github.com/LightBuzz/Vitruvius). Vitruvius is an open-source Kinect library that will speed-up the development process of your projects and will save you a ton of time. Vitruvius supports WPF, WinForms and WinRT.
+Licensed under the MIT License - see [LISENCE.md](https://github.com/lokigast/kinect-body-joints-to-minecraft/blob/master/LICENSE).
