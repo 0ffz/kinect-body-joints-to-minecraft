@@ -8,7 +8,7 @@ Useful when trying to animate complex join movements by hand. Instead, one can p
 
 Credits
 ---
-Partially developed by Daniel Voznyy (lokigast) (Originally created around 2015).
+Partially developed by Daniel Voznyy (0ffz) (Originally created around 2015).
 
 Thanks to [Vangos Pterneas](http://pterneas.com) for creating original code allowing to find joint intersection positions in 3D space.
 
